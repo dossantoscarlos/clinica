@@ -18,7 +18,7 @@ class UserController(private val userService: UserService) {
     }
 
     @GetMapping("api/user/{email}")
-    fun showUser(@PathVariable("email") email: String): ResponseEntity<User> {
+    fun showUser(@PathVariable("email") email: String): User {
         return userService.findByEmail(email)
     }
 

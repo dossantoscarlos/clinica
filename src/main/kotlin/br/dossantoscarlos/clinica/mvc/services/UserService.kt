@@ -18,12 +18,7 @@ class UserService (private val userRepository: UserRepositoryImpl)  {
         return userRepository.save(user)
     }
 
-    fun findByEmail(email: String): ResponseEntity<User> {
-        val user = userRepository.findByEmail(email)
-        return if (user != null) {
-            ResponseEntity.ok(user)
-        } else {
-            ResponseEntity.notFound().build()
-        }
+    fun findByEmail(email: String): User {
+        return userRepository.findByEmail(email)
     }
 }
